@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Raid Admin Panel — SPT/Fika</title>
+  <link rel="stylesheet" href="/RaidAdminPanel/css/app.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Raid Admin Panel</h1>
+      <p class="subtitle">Админка сервера SPT 4 + Fika — профили, рейды, принудительные действия</p>
+    </div>
+    <div class="auth-box">
+      <label for="apiKey">API ключ</label>
+      <input id="apiKey" type="password" placeholder="из config.json мода" autocomplete="off" />
+      <button id="btnConnect" type="button">Подключиться</button>
+    </div>
+  </header>
+
+  <main id="app" class="hidden">
+    <section class="cards" id="statusCards"></section>
+
+    <section class="panel">
+      <h2>Быстрые действия</h2>
+      <p class="hint">Сохранение профиля пишет текущее состояние из памяти сервера на диск. Extract и снимок инвентаря требуют <strong>клиентский мод RaidAdminPanel</strong> у игрока в рейде.</p>
+      <div class="actions">
+        <button type="button" class="btn primary" data-action="save-all">Сохранить все профили</button>
+        <button type="button" class="btn" data-action="refresh">Обновить данные</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Активные рейды (Fika)</h2>
+      <p class="hint">«Высадка всем» ставит команду на клиент: живые игроки завершают рейд как <em>survived</em> (как F8/extract в Fika). Мёртвые клиенты команду не выполнят.</p>
+      <div id="raidsTable" class="table-wrap"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Игроки</h2>
+      <div id="playersTable" class="table-wrap"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Журнал действий</h2>
+      <div id="logBox" class="log-box"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="/RaidAdminPanel/js/app.js"></script>
+</body>
+</html>
