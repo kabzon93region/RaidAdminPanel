@@ -260,16 +260,27 @@ public class RaidAdminService(
             throw new KeyNotFoundException($"Fika match not found: {matchId}");
         }
 
+        actionLog.Info($"[DEBUG] QueueForceExtractForMatch: matchId={matchId}, total players={raid.PlayerIds.Count}, headless={raid.Headless}, hostProfileId={raid.HostProfileId}");
+
         var commands = new List<AdminClientCommand>();
         foreach (var pid in raid.PlayerIds)
         {
             if (!MongoId.IsValidMongoId(pid))
             {
+                actionLog.Warning($"[DEBUG] QueueForceExtractForMatch: skipping invalid mongo id: {pid}");
                 continue;
             }
 
             if (!includeDead && raid.DeadPlayerIds.Contains(pid))
             {
+                actionLog.Info($"[DEBUG] QueueForceExtractForMatch: skipping dead player: {pid}");
+                continue;
+            }
+
+            // Skip headless host - they don't have a client to process the command
+            if (raid.Headless && pid == raid.HostProfileId)
+            {
+                actionLog.Info($"[DEBUG] QueueForceExtractForMatch: skipping headless host: {pid}");
                 continue;
             }
 

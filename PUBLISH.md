@@ -31,10 +31,10 @@ python CURSORAIMODING/tools/publish/publish_github_release.py RaidAdminPanel --c
 
 Прикрепить zip (только игровые файлы, без INSTALL.md):
 
-`\\Servant\data\Games\EscapeFromTarkov4\CURSORAIMODING\releases\RaidAdminPanel_v1.0.14_2026-06-27.zip`
+`\\Servant\data\Games\EscapeFromTarkov4\CURSORAIMODING\releases\RaidAdminPanel_v1.0.18_2026-06-27.zip`
 
 ```powershell
-gh release create v1.0.0 "\\Servant\data\Games\EscapeFromTarkov4\CURSORAIMODING\releases\RaidAdminPanel_v1.0.14_2026-06-27.zip" ^
+gh release create v1.0.0 "\\Servant\data\Games\EscapeFromTarkov4\CURSORAIMODING\releases\RaidAdminPanel_v1.0.18_2026-06-27.zip" ^
   --title "Raid Admin Panel v1.0.0" ^
   --notes-file CHANGELOG.md
 ```

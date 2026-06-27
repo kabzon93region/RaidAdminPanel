@@ -1,3 +1,5 @@
+using SPTarkov.Server.Core.Models.Utils;
+
 namespace RaidAdminPanel.Models;
 
 public sealed class RaidAdminConfig
@@ -11,10 +13,10 @@ public sealed class RaidAdminConfig
 
 public enum AdminCommandType
 {
-    ForceExtractSurvived,
-    ForceExtractAll,
-    RequestInventorySnapshot,
-    PingClient
+    ForceExtractSurvived = 0,
+    RequestInventorySnapshot = 1,
+    PingClient = 2,
+    ForceExtractAll = 3
 }
 
 public sealed class AdminClientCommand
@@ -79,7 +81,7 @@ public sealed class ForceExtractRequest
     public string? Reason { get; set; }
 }
 
-public sealed class ClientCommandAckRequest
+public sealed class ClientCommandAckRequest : IRequestData
 {
     public required string CommandId { get; set; }
     public bool Success { get; set; }

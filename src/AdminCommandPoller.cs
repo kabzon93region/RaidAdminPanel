@@ -179,7 +179,7 @@ namespace RaidAdminPanel
 
             _log.LogInfo($"[RaidAdminPanel] Command execution result: type='{type}', success={success}, message='{message}'");
 
-            var ack = $"{{\"commandId\":\"{commandId}\",\"success\":{success.ToString().ToLowerInvariant()},\"message\":\"{Escape(message)}\"}}";
+            var ack = $"{{\"CommandId\":\"{commandId}\",\"Success\":{success.ToString().ToLowerInvariant()},\"Message\":\"{Escape(message)}\"}}";
             _log.LogInfo($"[RaidAdminPanel] ACK payload: {ack}");
             
             try

@@ -15,7 +15,7 @@ public class RaidAdminStaticRouter(JsonUtil jsonUtil, RaidAdminRouteCallbacks ca
         "/raidadminpanel/client/commands/ack",
         async (url, info, sessionId, output) => await callbacks.AckCommand(url, info, sessionId)
     ),
-    new RouteAction<InventorySnapshotRequest>(
+    new RouteAction<EmptyRequestData>(
         "/raidadminpanel/client/inventory-snapshot",
         async (url, info, sessionId, output) => await callbacks.SaveInventorySnapshot(url, info, sessionId)
     ),
@@ -81,9 +81,9 @@ public class RaidAdminRouteCallbacks(
         return new ValueTask<string>(httpResponseUtil.NullResponse());
     }
 
-    public async ValueTask<string> SaveInventorySnapshot(string url, InventorySnapshotRequest info, MongoId sessionId)
+    public async ValueTask<string> SaveInventorySnapshot(string url, EmptyRequestData info, MongoId sessionId)
     {
-        await adminService.SaveInventorySnapshotAsync(sessionId, info);
+        // Inventory snapshot is deprecated - just return null response
         return httpResponseUtil.NullResponse();
     }
 }
