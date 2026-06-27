@@ -1,7 +1,7 @@
 {
-  "adminApiKey": "change-me-raid-admin",
-  "requireApiKey": true,
+  "adminApiKey": "",
+  "requireApiKey": false,
   "clientPollIntervalSeconds": 3,
   "maxActionLogEntries": 200,
-  "notes": "Откройте https://<IP-сервера>:6969/RaidAdminPanel/index.html — порт и IP из SPT_Data/configs/http.json"
+  "notes": "DEV: requireApiKey=false — вход без ключа. Для релиза: requireApiKey=true и adminApiKey. Админка: /RaidAdminPanel/index.html или /admin"
 }

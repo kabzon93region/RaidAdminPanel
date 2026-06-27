@@ -7,11 +7,12 @@
     <LangVersion>latest</LangVersion>
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <Version>1.0.0</Version>
+    <Version>1.0.2</Version>
     <Charset>utf-8</Charset>
   </PropertyGroup>
 
   <PropertyGroup>
+    <TarkovDir Condition="'$(TarkovDir)' == '' AND '$(EFT_GAME_ROOT)' != ''">$(EFT_GAME_ROOT)\</TarkovDir>
     <TarkovDir Condition="'$(TarkovDir)' == ''">U:\Games\EscapeFromTarkov4\</TarkovDir>
     <CursorModdingDir>$(TarkovDir)CURSORAIMODING\</CursorModdingDir>
     <TarkovManagedDir>$(TarkovDir)EscapeFromTarkov_Data\Managed\</TarkovManagedDir>

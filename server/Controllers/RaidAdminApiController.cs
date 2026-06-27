@@ -198,4 +198,39 @@ public class RaidAdminApiController(
         var ok = adminService.TryEndFikaMatch(new MongoId(matchId), out var message);
         return ok ? Ok(new { message }) : BadRequest(new { error = message });
     }
+
+    /// <summary>
+    /// Прямой force extract через Fika API (server-side, без polling).
+    /// Завершает рейд для конкретного игрока.
+    /// </summary>
+    [HttpPost("players/{profileId}/force-extract-direct")]
+    public IActionResult ForceExtractPlayerDirect(string profileId, [FromBody] ForceExtractRequest? body)
+    {
+        if (!Authorize())
+        {
+            return Unauthorized();
+        }
+
+        if (!MongoId.IsValidMongoId(profileId))
+        {
+            return BadRequest(new { error = "Invalid profileId" });
+        }
+
+        try
+        {
+            var matchId = body?.MatchId ?? adminService.GetMatchIdForPlayer(new MongoId(profileId));
+            if (string.IsNullOrEmpty(matchId))
+            {
+                return BadRequest(new { error = "Player not in active Fika match" });
+            }
+
+            // Завершаем весь матч Fika для этого игрока
+            var ok = adminService.TryEndFikaMatch(new MongoId(matchId), out var message);
+            return ok ? Ok(new { message, profileId, matchId }) : BadRequest(new { error = message });
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { error = ex.Message });
+        }
+    }
 }

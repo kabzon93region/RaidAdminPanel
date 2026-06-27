@@ -3,7 +3,7 @@ namespace RaidAdminPanel.Models;
 public sealed class RaidAdminConfig
 {
     public string AdminApiKey { get; set; } = "change-me-raid-admin";
-    public bool RequireApiKey { get; set; } = true;
+    public bool RequireApiKey { get; set; } = false;
     public int ClientPollIntervalSeconds { get; set; } = 3;
     public int MaxActionLogEntries { get; set; } = 200;
     public string? Notes { get; set; }
@@ -12,6 +12,7 @@ public sealed class RaidAdminConfig
 public enum AdminCommandType
 {
     ForceExtractSurvived,
+    ForceExtractAll,
     RequestInventorySnapshot,
     PingClient
 }

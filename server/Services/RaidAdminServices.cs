@@ -233,6 +233,7 @@ public class RaidAdminService(
         };
         commandQueue.Enqueue(cmd);
         actionLog.Info($"Команда extract → клиент {profileId}", cmd.CommandId);
+        actionLog.Info($"[DEBUG] QueueForceExtract: profileId={profileId}, matchId={matchId}, queue key={profileId}");
         return cmd;
     }
 
@@ -273,7 +274,17 @@ public class RaidAdminService(
             }
 
             var profileId = new MongoId(pid);
-            commands.Add(QueueForceExtract(profileId, matchId, reason));
+            // Use ForceExtractAll type for mass extract (client shows different notification)
+            var cmd = new AdminClientCommand
+            {
+                CommandId = Guid.NewGuid().ToString("N"),
+                Type = AdminCommandType.ForceExtractAll,
+                ProfileId = profileId,
+                Reason = reason ?? "Admin: массовая высадка рейда"
+            };
+            actionLog.Info($"[DEBUG] QueueForceExtractForMatch: profileId={profileId}, matchId={matchId}, type=ForceExtractAll");
+            commandQueue.Enqueue(cmd);
+            commands.Add(cmd);
         }
 
         actionLog.Info($"Массовый extract для рейда {matchId}", $"players={commands.Count}");
@@ -320,6 +331,11 @@ public class RaidAdminService(
 
         return ok;
     }
+
+    public string? GetMatchIdForPlayer(MongoId profileId)
+    {
+        return fikaBridge.GetMatchIdForPlayer(profileId);
+    }
 }
 
 [Injectable(TypePriority = OnLoadOrder.PostDBModLoader)]
@@ -330,7 +346,7 @@ public class RaidAdminPanelOnLoad(
     public Task OnLoad()
     {
         ProgramStatics.ServiceProvider = serviceProvider;
-        logger.Info("[RaidAdminPanel] loaded — open /RaidAdminPanel/index.html on SPT HTTPS port");
+        logger.Info("[RaidAdminPanel] loaded");
         return Task.CompletedTask;
     }
 }
