@@ -9,7 +9,7 @@
 [![BepInEx](https://img.shields.io/badge/BepInEx-5%2E4%2Ex-yellow)](https://github.com/BepInEx/BepInEx)
 ![Deployment](https://img.shields.io/badge/deployment-server_client-lightgrey)
 
-﻿# Raid Admin Panel
+Браузерная админка SPT 4 + клиентский компаньон для extract и снимка лута в Fika coop.
 
 | | |
 |---|---|
