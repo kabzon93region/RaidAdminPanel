@@ -1,8 +1,23 @@
+# Raid Admin Panel
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Release](https://img.shields.io/badge/release-v1.0.20-blue)](https://github.com/kabzon93region/RaidAdminPanel/releases/tag/v1.0.20)
+[![Download zip](https://img.shields.io/badge/download-zip-brightgreen)](https://github.com/kabzon93region/RaidAdminPanel/releases/tag/v1.0.20)
+[![EFT](https://img.shields.io/badge/EFT-16%2E9-orange)](https://www.escapefromtarkov.com/)
+[![SPT](https://img.shields.io/badge/SPT-4.0.13-blue)](https://sp-tarkov.com/)
+[![Fika](https://img.shields.io/badge/Fika-2%2E3%2Ex-purple)](https://github.com/project-fika/Fika-Plugin)
+[![BepInEx](https://img.shields.io/badge/BepInEx-5%2E4%2Ex-yellow)](https://github.com/BepInEx/BepInEx)
+![Deployment](https://img.shields.io/badge/deployment-server_client-lightgrey)
+
 ﻿# Raid Admin Panel
 
-**GitHub:** [kabzon93region](https://github.com/kabzon93region)
-
-**Combo-мод (клиент + сервер) для SPT 4 + Fika 2.3.** Браузерная админка для управления рейдом: принудительный extract, снимок лута, мониторинг игроков.
+| | |
+|---|---|
+| **Разработчик** | [kabzon93region](https://github.com/kabzon93region) |
+| **Версия** | 1.0.20 |
+| **GitHub** | [RaidAdminPanel](https://github.com/kabzon93region/RaidAdminPanel) |
+| **Deployment** | `(server_client)` |
+| **Тип** | combo (client + server) |
 
 ## Возможности
 
@@ -28,7 +43,6 @@
 
 - Открыть `https://<server-ip>:6969/RaidAdminPanel/index.html` в браузере
 - Порт и IP — из `SPT_Data/configs/http.json`
-
 | Компонент | Путь |
 |-----------|------|
 | Сервер | `SPT/user/mods/RaidAdminPanel/` |
@@ -50,5 +64,5 @@
 
 ## Поддержать проект
 
-Разовый донат картой РФ, СБП, ЮMoney, VK Pay:  
+Разовый донат картой РФ, СБП, ЮMoney, VK Pay:
 **[DonationAlerts → kabzon93region](https://www.donationalerts.com/r/kabzon93region)**
