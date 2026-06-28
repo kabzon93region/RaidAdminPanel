@@ -1,5 +1,14 @@
 # Changelog — Raid Admin Panel
 
+## 1.0.20 — 2026-06-28
+
+### Клиент — усиленный force extract (Fika coop)
+
+- Учитывает **экран ожидания F8**: берёт `ExitLocation` / `ExitStatus` из `CoopGame`, а не случайный exfil.
+- Перед `Stop()` — **безопасный Dispose ботов** (ошибки модов вроде BossNotifier.Fika не роняют extract).
+- **Emergency fallback**: если `Stop()` всё равно упал — вызов `method_15` (сохранение рейда + переход в меню).
+- Подробные логи: `[RaidAdminPanel.Extract]` с inner exception.
+
 ## 1.0.0 — 2026-06-12
 
 - Первый публичный релиз: server Web UI + REST API + client command poller

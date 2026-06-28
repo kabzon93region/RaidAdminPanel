@@ -1,8 +1,8 @@
 # Publish to GitHub — Raid Admin Panel
 
-**Статус:** `ready`  
+**Статус:** `published`  
 **GitHub:** Release + zip  
-**Версия:** `1.0.19`  
+**Версия:** `1.0.20`  
 **Deployment:** `(server_client)`
 
 ## 1. Подготовка (уже сделано этим скриптом)
@@ -15,7 +15,7 @@
 cd github-repos/RaidAdminPanel
 git init
 git add .
-git commit -m "Source backup Raid Admin Panel v1.0.19"
+git commit -m "Source backup Raid Admin Panel v1.0.20"
 git branch -M main
 git remote add origin https://github.com/kabzon93region/RaidAdminPanel.git
 git push -u origin main
@@ -31,11 +31,11 @@ python CURSORAIMODING/tools/publish/publish_github_release.py RaidAdminPanel --c
 
 Прикрепить zip (только игровые файлы, без INSTALL.md):
 
-`\\Servant\data\Games\EscapeFromTarkov4\CURSORAIMODING\releases\RaidAdminPanel_v1.0.19_2026-06-27.zip`
+`\\Servant\data\Games\EscapeFromTarkov4\CURSORAIMODING\releases\RaidAdminPanel_(server_client)_v1.0.20_2026-06-28.zip`
 
 ```powershell
-gh release create v1.0.19 "\\Servant\data\Games\EscapeFromTarkov4\CURSORAIMODING\releases\RaidAdminPanel_v1.0.19_2026-06-27.zip" ^
-  --title "Raid Admin Panel v1.0.19" ^
+gh release create v1.0.20 "\\Servant\data\Games\EscapeFromTarkov4\CURSORAIMODING\releases\RaidAdminPanel_(server_client)_v1.0.20_2026-06-28.zip" ^
+  --title "Raid Admin Panel v1.0.20" ^
   --notes-file CHANGELOG.md
 ```
 
