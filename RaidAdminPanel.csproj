@@ -7,7 +7,7 @@
     <LangVersion>latest</LangVersion>
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <Version>1.0.20</Version>
+    <Version>1.0.21</Version>
     <Charset>utf-8</Charset>
   </PropertyGroup>
 
@@ -42,6 +42,8 @@
     <Compile Include="src\AdminCommandPoller.cs" />
     <Compile Include="src\FikaExtractHelper.cs" />
     <Compile Include="src\RaidAdminClientActions.cs" />
+    <Compile Include="src\Diagnostics\ExtractKeyDiagnostics.cs" />
+    <Compile Include="src\Patches\CoopHandlerExtractPatch.cs" />
   </ItemGroup>
 
 </Project>

@@ -57,10 +57,11 @@
 
 ## Известные проблемы
 
-- Extract требует клиентский мод у **каждого** игрока в рейде
+- Extract требует клиентский мод у **каждому** игрока в рейде
 - Fika EndMatch не сохраняет лут — только после штатного extract
 - Снимок лута v1 — item count в profileData, не полный merge инвентаря
 - BossNotifier.Fika (upstream) несовместим с Fika 2.3.3 — может ломать F8/extract; client v1.0.20+ смягчает это
+- **Performance:** `Debug > EnableF8Diagnostics = true` вызывает сильные лаги/FPS drop (Harmony prefix на `Fika.Core.Main.Components.CoopHandler.ProcessQuitting` + тяжёлая рефлексия). По умолчанию **выключено**. Включайте только при проблемах с массовым extract.
 
 ## Поддержать проект
 
